@@ -5,6 +5,7 @@ import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import Achievements from "@/components/Achievements";
+import Certifications from "@/components/Certifications";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
 import DesignShowcase from "@/components/DesignShowcase";
@@ -20,10 +21,11 @@ export default function Home() {
       {mode === "tech" ? (
         <>
           <Hero />
-          {/* Background removed as requested */}
           <Skills />
           <ProjectsGrid />
           <Achievements />
+          {/* NEW CERTIFICATIONS SECTION PLACED HERE */}
+          <Certifications />
           <Leadership />
           <Contact />
         </>
