@@ -13,40 +13,72 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center overflow-hidden bg-darkBg pt-20 border-b border-white/5">
       
       {/* MASSIVE BACKGROUND TEXT (z-0) */}
-      <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none flex flex-col leading-[0.8]">
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center z-0 pointer-events-none flex flex-col leading-[0.8]"
+      >
         <span className="text-[20vw] font-black text-white/3 tracking-tighter">SAHAS</span>
         <span className="text-[11vw] font-black text-white/3 tracking-tighter mt-2">ABEYGUNARATHNE</span>
-      </div>
+      </motion.div>
 
       {/* FOREGROUND CONTENT (z-10) */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-8 items-end pb-12 md:pb-24 h-full">
         
         {/* LEFT COLUMN: Name, Bio, Tags, and Get In Touch */}
         <motion.div 
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="md:col-span-5 flex flex-col justify-end h-full mt-12 md:mt-0 relative z-30"
         >
-          <p className="italic text-gray-400 text-lg mb-2">Hello, I'm</p>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="italic text-gray-400 text-lg mb-2"
+          >
+            Hello, I'm
+          </motion.p>
           
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.9] tracking-tighter mb-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.9] tracking-tighter mb-4"
+          >
             Sahas<br />
             <span className={mode === "tech" ? "text-gold-rich" : "text-purple-400"}>
               Abeygunarathne
             </span>
-          </h1>
+          </motion.h1>
           
-          <h2 className={`text-sm md:text-base font-bold uppercase tracking-widest mb-6 ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className={`text-sm md:text-base font-bold uppercase tracking-widest mb-6 ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}
+          >
             IT Undergraduate at the<br/>University of Moratuwa
-          </h2>
+          </motion.h2>
           
-          <p className="text-gray-400 text-sm leading-relaxed max-w-md backdrop-blur-md bg-black/40 p-5 rounded-2xl border border-white/5 shadow-xl mb-6 relative z-50">
+          <motion.p 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-gray-400 text-sm leading-relaxed max-w-md backdrop-blur-md bg-black/40 p-5 rounded-2xl border border-white/5 shadow-xl mb-6 relative z-50"
+          >
             Dedicated IT undergraduate pursuing a BSc (Hons) in Information Technology, with a passion for software engineering and full-stack development. Possess strong analytical and problem-solving skills, supported by hands-on experience in web development and software projects. Seeking a Software Engineering Internship to further develop technical expertise and contribute to building scalable, high-quality software solutions.
-          </p>
+          </motion.p>
 
           {/* Role Tags with Pulsing Indicator */}
-          <div className="flex flex-wrap items-center gap-3 mb-8 pointer-events-auto relative z-50">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="flex flex-wrap items-center gap-3 mb-8 pointer-events-auto relative z-50"
+          >
             <div className="flex items-center justify-center w-4 h-4 mr-1">
               <span className={`absolute w-3 h-3 rounded-full animate-ping opacity-75 ${mode === "tech" ? "bg-gold-rich" : "bg-purple-500"}`}></span>
               <span className={`relative w-2 h-2 rounded-full ${mode === "tech" ? "bg-gold-rich" : "bg-purple-500"}`}></span>
@@ -59,20 +91,30 @@ export default function Hero() {
                 {tag}
               </span>
             ))}
-          </div>
+          </motion.div>
 
           {/* Primary Action Button */}
-          <div className="flex items-center mb-6 pointer-events-auto relative z-50">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="flex items-center mb-6 pointer-events-auto relative z-50"
+          >
             <a 
               href="#contact" 
               className={`flex items-center gap-2 px-8 py-3.5 font-bold rounded-md transition-all text-sm w-fit ${mode === "tech" ? "bg-gold-rich text-black hover:bg-gold-light" : "bg-purple-500 text-white hover:bg-purple-400"}`}
             >
               Get In Touch <ArrowRight size={16} />
             </a>
-          </div>
+          </motion.div>
 
           {/* Social Links Row */}
-          <div className="flex items-center gap-4 pointer-events-auto relative z-50">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className="flex items-center gap-4 pointer-events-auto relative z-50"
+          >
             <div className="flex items-center gap-2">
               <a href="https://github.com/Sahas-sass" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-md bg-black/50 border border-white/10 hover:border-white/30 hover:text-white text-gray-400 transition-all backdrop-blur-md">
                 <FaGithub size={18} />
@@ -86,7 +128,7 @@ export default function Hero() {
             </div>
             <div className="w-px h-6 bg-white/10 mx-2"></div>
             <span className="text-[10px] font-mono tracking-widest text-gray-500 uppercase">Connect</span>
-          </div>
+          </motion.div>
 
         </motion.div>
 
@@ -95,9 +137,9 @@ export default function Hero() {
 
         {/* RIGHT COLUMN: Highlight Cards, Stats, and Secondary Buttons */}
         <motion.div 
-          initial={{ opacity: 0, x: 30 }}
+          initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.4, ease: [0.21, 0.47, 0.32, 0.98] }}
           className="md:col-span-3 flex flex-col md:items-end justify-end gap-10 pb-4 mt-12 md:mt-0 relative z-30 pointer-events-none"
         >
           {/* Tagline Card */}
@@ -145,8 +187,13 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* CENTER PORTRAIT IMAGE (z-40) - Scaled up and overlapping the name */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[95vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] h-[80vh] md:h-[95vh] pointer-events-none">
+      {/* CENTER PORTRAIT IMAGE (z-40) - Animated Entrance */}
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 z-40 w-[95vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] h-[80vh] md:h-[95vh] pointer-events-none"
+      >
         <div className="w-full h-full relative">
           <Image 
             src="/sahas-portrait.png" 
@@ -157,7 +204,7 @@ export default function Hero() {
           />
         </div>
         <div className="absolute bottom-0 left-0 w-full h-24 bg-linear-to-t from-darkBg to-transparent z-10"></div>
-      </div>
+      </motion.div>
 
     </section>
   );

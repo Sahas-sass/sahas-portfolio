@@ -10,6 +10,7 @@ import {
   SiDocker, SiPytorch, SiTensorflow, SiLaravel, SiMysql, SiFirebase
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
+import FadeIn from "@/components/FadeIn";
 
 export default function Skills() {
   const { mode } = useTheme();
@@ -78,49 +79,51 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-      <div className="mb-12">
-        <h3 className={`text-sm tracking-widest uppercase font-semibold ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
-          Technical Stack
-        </h3>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1 text-white">
-          The stack I reach for
-        </h2>
-        <p className="text-gray-400 text-sm max-w-md mt-4">
-          A comprehensive toolkit spanning scalable backend architecture, modern frontends, and machine learning integration.
-        </p>
-      </div>
+      
+      {/* Animated Header */}
+      <FadeIn>
+        <div className="mb-12">
+          <h3 className={`text-sm tracking-widest uppercase font-semibold ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
+            Technical Stack
+          </h3>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1 text-white">
+            The stack I reach for
+          </h2>
+          <p className="text-gray-400 text-sm max-w-md mt-4">
+            A comprehensive toolkit spanning scalable backend architecture, modern frontends, and machine learning integration.
+          </p>
+        </div>
+      </FadeIn>
 
+      {/* Grid with staggered card animations */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {skillCategories.map((category, idx) => (
-          <motion.div 
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
-            className="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-white/10 transition-colors flex flex-col gap-6"
-          >
-            {/* Category Header */}
-            <div className="flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-white/5 border border-white/5">
-                {category.icon}
-              </div>
-              <h3 className="text-xl font-bold text-white">{category.title}</h3>
-            </div>
-
-            {/* Skill Pills */}
-            <div className="flex flex-wrap gap-3">
-              {category.skills.map((skill, sIdx) => (
-                <div 
-                  key={sIdx}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-md border text-sm font-medium ${skill.color} transition-transform hover:scale-105`}
-                >
-                  <span className="text-base">{skill.icon}</span>
-                  {skill.name}
+          <FadeIn key={idx} delay={(idx % 2) * 0.1}>
+            <div className="p-6 rounded-2xl bg-cardBg border border-white/5 hover:border-white/10 transition-colors flex flex-col gap-6 h-full">
+              {/* Category Header */}
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-white/5 border border-white/5">
+                  {category.icon}
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+              </div>
+
+              {/* Skill Pills with subtle hover zoom */}
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill, sIdx) => (
+                  <motion.div 
+                    key={sIdx}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`flex items-center gap-2 px-3 py-1.5 rounded-md border text-sm font-medium ${skill.color} cursor-default`}
+                  >
+                    <span className="text-base">{skill.icon}</span>
+                    {skill.name}
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </section>

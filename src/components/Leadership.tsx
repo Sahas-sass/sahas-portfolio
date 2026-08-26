@@ -2,7 +2,7 @@
 
 import { useTheme } from "@/context/ThemeContext";
 import { Users, Megaphone, Globe, Award, Code, Rocket, Heart, Calendar } from "lucide-react";
-import { motion } from "framer-motion";
+import FadeIn from "@/components/FadeIn";
 
 interface Role {
   title: string;
@@ -124,81 +124,78 @@ export default function Leadership() {
   return (
     <section id="leadership" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
       
-      {/* PREMIUM HEADER */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <h3 className={`text-sm tracking-widest uppercase font-semibold ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
-            Community
-          </h3>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1 text-white">
-            Volunteer & Leadership
-          </h2>
+      {/* Animated Header */}
+      <FadeIn>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <h3 className={`text-sm tracking-widest uppercase font-semibold ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
+              Community
+            </h3>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1 text-white">
+              Volunteer & Leadership
+            </h2>
+          </div>
+          <p className="text-sm text-gray-400 max-w-sm md:text-right">
+            Driving community engagement, leading design teams, and managing public relations across major university organizations.
+          </p>
         </div>
-        <p className="text-sm text-gray-400 max-w-sm md:text-right">
-          Driving community engagement, leading design teams, and managing public relations across major university organizations.
-        </p>
-      </div>
+      </FadeIn>
 
-      {/* MASONRY-STYLE GRID */}
+      {/* MASONRY-STYLE GRID with FadeIn wrappers */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
         {organizations.map((org, idx) => (
-          <motion.div 
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: (idx % 3) * 0.1, duration: 0.5 }}
-            className="group relative flex flex-col p-7 rounded-3xl bg-cardBg border border-white/5 overflow-hidden hover:border-white/20 transition-all duration-500"
-          >
-            {/* Subtle Glow on Hover */}
-            <div className={`absolute -inset-px opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-linear-to-br ${mode === "tech" ? "from-gold-rich" : "from-purple-500"} to-transparent pointer-events-none z-0`}></div>
+          <FadeIn key={idx} delay={(idx % 3) * 0.1}>
+            <div className="group relative flex flex-col p-7 rounded-3xl bg-cardBg border border-white/5 overflow-hidden hover:border-white/20 transition-all duration-500 h-full">
+              {/* Subtle Glow on Hover */}
+              <div className={`absolute -inset-px opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-linear-to-br ${mode === "tech" ? "from-gold-rich" : "from-purple-500"} to-transparent pointer-events-none z-0`}></div>
 
-            <div className="relative z-10">
-              {/* Organization Header */}
-              <div className="flex items-center gap-3 mb-2">
-                <div className={`p-2.5 rounded-xl bg-white/5 border border-white/5 ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
-                  {org.icon}
+              <div className="relative z-10 flex flex-col h-full">
+                {/* Organization Header */}
+                <div className="flex items-center gap-3 mb-2">
+                  <div className={`p-2.5 rounded-xl bg-white/5 border border-white/5 ${mode === "tech" ? "text-gold-rich" : "text-purple-400"}`}>
+                    {org.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-white leading-tight">{org.name}</h3>
                 </div>
-                <h3 className="text-lg font-bold text-white leading-tight">{org.name}</h3>
-              </div>
 
-              {/* Roles Timeline */}
-              <div className="relative border-l border-white/10 ml-4 mt-6 flex flex-col gap-6 pb-2">
-                {org.roles.map((role: Role, rIdx: number) => (
-                  <div key={rIdx} className="relative pl-6">
-                    
-                    {/* Timeline Node */}
-                    <div className={`absolute w-2.5 h-2.5 rounded-full left-[-5.5px] top-1.5 border-2 border-cardBg ${rIdx === 0 ? (mode === "tech" ? "bg-gold-rich" : "bg-purple-500") : "bg-gray-600"}`} />
-                    
-                    <h4 className="text-white font-bold text-sm leading-tight mb-1">{role.title}</h4>
-                    <p className="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-2">{role.term}</p>
-                    
-                    {role.desc && (
-                      <p className="text-xs text-gray-400 mb-1 leading-relaxed">{role.desc}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              {/* Separate Event Volunteering Block (if applicable) */}
-              {org.events && (
-                <div className="mt-6 pt-4 border-t border-white/10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Calendar size={14} className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} />
-                    <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Event Volunteering</span>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5">
-                    {org.events.map((ev: string) => (
-                      <span key={ev} className="text-[10px] font-medium text-gray-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded-md">
-                        {ev}
-                      </span>
-                    ))}
-                  </div>
+                {/* Roles Timeline */}
+                <div className="relative border-l border-white/10 ml-4 mt-6 flex flex-col gap-6 pb-2">
+                  {org.roles.map((role: Role, rIdx: number) => (
+                    <div key={rIdx} className="relative pl-6">
+                      
+                      {/* Timeline Node */}
+                      <div className={`absolute w-2.5 h-2.5 rounded-full left-[-5.5px] top-1.5 border-2 border-cardBg ${rIdx === 0 ? (mode === "tech" ? "bg-gold-rich" : "bg-purple-500") : "bg-gray-600"}`} />
+                      
+                      <h4 className="text-white font-bold text-sm leading-tight mb-1">{role.title}</h4>
+                      <p className="text-[10px] text-gray-500 font-mono tracking-widest uppercase mb-2">{role.term}</p>
+                      
+                      {role.desc && (
+                        <p className="text-xs text-gray-400 mb-1 leading-relaxed">{role.desc}</p>
+                      )}
+                    </div>
+                  ))}
                 </div>
-              )}
 
+                {/* Separate Event Volunteering Block (if applicable) */}
+                {org.events && (
+                  <div className="mt-auto pt-6 border-t border-white/10">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Calendar size={14} className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} />
+                      <span className="text-xs font-bold text-gray-300 uppercase tracking-wider">Event Volunteering</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {org.events.map((ev: string) => (
+                        <span key={ev} className="text-[10px] font-medium text-gray-400 bg-white/5 border border-white/10 px-2.5 py-1 rounded-md">
+                          {ev}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+              </div>
             </div>
-          </motion.div>
+          </FadeIn>
         ))}
       </div>
     </section>
