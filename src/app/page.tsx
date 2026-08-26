@@ -1,19 +1,38 @@
+"use client";
+
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Background from "@/components/Background";
+import Skills from "@/components/Skills";
+import ProjectsGrid from "@/components/ProjectsGrid";
+import Achievements from "@/components/Achievements";
+import Leadership from "@/components/Leadership";
+import Contact from "@/components/Contact";
+import DesignShowcase from "@/components/DesignShowcase";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
+  const { mode } = useTheme();
+
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative">
       <Navbar />
-      
-      {/* Temporary placeholder to push content below the fixed navbar */}
-      <div className="pt-32 px-6 max-w-7xl mx-auto">
-        <h1 className="text-5xl font-bold mt-20">
-          Welcome to the Portfolio
-        </h1>
-        <p className="mt-4 text-gray-400">
-          Click the toggle button in the top right to test the global state switch.
-        </p>
-      </div>
+
+      {mode === "tech" ? (
+        <>
+          <Hero />
+          <Background />
+          <Skills />
+          <ProjectsGrid />
+          <Achievements />
+          <Leadership />
+          <Contact />
+        </>
+      ) : (
+        <div className="pt-24">
+          <DesignShowcase />
+        </div>
+      )}
     </main>
   );
 }
