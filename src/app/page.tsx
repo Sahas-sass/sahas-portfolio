@@ -8,9 +8,17 @@ import Achievements from "@/components/Achievements";
 import Certifications from "@/components/Certifications";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
+
+// Design Mode Components
+import DesignHero from "@/components/DesignHero";
+import DesignSkills from "@/components/DesignSkills";
 import DesignShowcase from "@/components/DesignShowcase";
+import DesignExperience from "@/components/DesignExperience";
+import DesignAchievements from "@/components/DesignAchievements";
+import DesignContact from "@/components/DesignContact";
+
 import ScrollToTop from "@/components/ScrollToTop";
-import Preloader from "@/components/Preloader"; // Import Preloader
+import Preloader from "@/components/Preloader";
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
@@ -18,14 +26,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative overflow-hidden bg-darkBg">
-      
-      {/* INITIAL PAGE LOADING SCREEN */}
       <Preloader />
 
-      {/* GLOBAL FADED GRID BACKGROUND (z-0) */}
       <div className="absolute inset-0 bg-grid-pattern pointer-events-none z-0"></div>
 
-      {/* DYNAMIC AMBIENT GLOWS */}
       <div className="absolute top-0 left-1/4 w-150 h-150 rounded-full blur-[140px] pointer-events-none z-0 opacity-15 transition-colors duration-700">
         <div className={`w-full h-full rounded-full ${mode === "tech" ? "bg-gold-rich" : "bg-purple-500"}`}></div>
       </div>
@@ -38,7 +42,6 @@ export default function Home() {
         <div className={`w-full h-full rounded-full ${mode === "tech" ? "bg-gold-rich" : "bg-purple-600"}`}></div>
       </div>
 
-      {/* FOREGROUND CONTENT (z-10) */}
       <div className="relative z-10">
         <Navbar />
 
@@ -53,14 +56,18 @@ export default function Home() {
             <Contact />
           </>
         ) : (
-          <div className="pt-24">
+          <>
+            <DesignHero />
+            <DesignSkills />
             <DesignShowcase />
-          </div>
+            <DesignExperience />
+            <DesignAchievements />
+            <DesignContact />
+          </>
         )}
 
         <ScrollToTop />
       </div>
-
     </main>
   );
 }
