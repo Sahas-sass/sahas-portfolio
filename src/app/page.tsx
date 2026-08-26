@@ -9,6 +9,7 @@ import Certifications from "@/components/Certifications";
 import Leadership from "@/components/Leadership";
 import Contact from "@/components/Contact";
 import DesignShowcase from "@/components/DesignShowcase";
+import ScrollToTop from "@/components/ScrollToTop"; // Import the scroll button
 import { useTheme } from "@/context/ThemeContext";
 
 export default function Home() {
@@ -24,7 +25,6 @@ export default function Home() {
           <Skills />
           <ProjectsGrid />
           <Achievements />
-          {/* NEW CERTIFICATIONS SECTION PLACED HERE */}
           <Certifications />
           <Leadership />
           <Contact />
@@ -34,6 +34,9 @@ export default function Home() {
           <DesignShowcase />
         </div>
       )}
+
+      {/* Floating Scroll to Top Progress Button */}
+      <ScrollToTop />
     </main>
   );
 }
