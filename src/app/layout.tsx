@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/context/ThemeContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Technical & Design",
+  title: "Portfolio | Sahas Abeygunarathne",
   description: "Showcasing technical engineering and creative design.",
   icons: {
     icon: "/favicon.svg",
