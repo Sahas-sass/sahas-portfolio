@@ -64,7 +64,8 @@ export default function DesignShowcase() {
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
             >
-              <Link href={`/design/${project.slug}`} className="block group relative flex flex-col rounded-3xl bg-black/75 border border-purple-500/20 backdrop-blur-xl overflow-hidden hover:border-purple-500/40 transition-all duration-500 h-full shadow-2xl">
+              {/* Removed 'block' from the className below */}
+              <Link href={`/design/${project.slug}`} className="group relative flex flex-col rounded-3xl bg-black/75 border border-purple-500/20 backdrop-blur-xl overflow-hidden hover:border-purple-500/40 transition-all duration-500 h-full shadow-2xl">
                 
                 {/* 1.png Cover Image */}
                 <div className="relative w-full h-56 bg-purple-950/20 border-b border-white/10 overflow-hidden">
