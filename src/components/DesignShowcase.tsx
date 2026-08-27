@@ -1,110 +1,50 @@
 "use client";
 
-import { useState } from "react";
 import { useTheme } from "@/context/ThemeContext";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Eye, ArrowUpRight, Palette, Layers, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
-
-interface DesignItem {
-  id: string;
-  title: string;
-  category: "UI/UX" | "Brand Identity" | "Posters" | "Digital Art";
-  description: string;
-  image: string;
-  tools: string[];
-}
+import Image from "next/image";
+import Link from "next/link";
+import { designProjects } from "@/data/designProjects";
 
 export default function DesignShowcase() {
   const { mode } = useTheme();
-  const [activeTab, setActiveTab] = useState<string>("All");
+  const [activeTab, setActiveTab] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
-  const designs: DesignItem[] = [
-    {
-      id: "swastham-ui",
-      title: "Swastham E-Commerce UI/UX",
-      category: "UI/UX",
-      description: "Minimalistic, serene herbal wellness e-commerce platform mobile app interface with glassmorphism navigation.",
-      image: "/projects/swastham.png", // Fallback text placeholder if image is missing
-      tools: ["Figma", "Design Systems", "Glassmorphism"]
-    },
-    {
-      id: "agrointel-ui",
-      title: "AgroIntel Smart Farming App",
-      category: "UI/UX",
-      description: "Data-driven crop health dashboard UI tailored for rural farmers with high-contrast accessibility.",
-      image: "/projects/agrointel.png",
-      tools: ["Figma", "UX Research", "Mobile UI"]
-    },
-    {
-      id: "sheroes-branding",
-      title: "SHEroes Club Identity & Graphics",
-      category: "Brand Identity",
-      description: "Complete visual identity, social media campaign banners, and workshop collateral for Leo Club of UoM.",
-      image: "/projects/sheroes.png",
-      tools: ["Adobe Illustrator", "Photoshop", "Branding"]
-    },
-    {
-      id: "mythological-art",
-      title: "Mythological Realism Artwork",
-      category: "Digital Art",
-      description: "Dramatic black-and-grey digital illustration exploring complex mythological realism and intricate shading.",
-      image: "/projects/artwork-1.png",
-      tools: ["Blender", "Photoshop", "Digital Painting"]
-    },
-    {
-      id: "moraxtreme-poster",
-      title: "MoraXtreme 10.0 Visual Direction",
-      category: "Posters",
-      description: "Official competitive programming championship promotional poster and cinematic brand reveal assets.",
-      image: "/projects/moraxtreme.png",
-      tools: ["Adobe Photoshop", "Poster Design", "Typography"]
-    },
-    {
-      id: "master-designer",
-      title: "Master Designer v3.0 Entry",
-      category: "Brand Identity",
-      description: "Award-winning individual design entry securing 1st Runner-Up position in national designthon.",
-      image: "/projects/master-designer.png",
-      tools: ["Brand Strategy", "Visual Design", "Figma"]
-    }
-  ];
+  const categories = ["All", "UI/UX", "Brand Identity", "Events", "Competition design", "Tshirt design"];
 
-  const categories = ["All", "UI/UX", "Brand Identity", "Posters", "Digital Art"];
+  const filteredProjects = activeTab === "All" 
+    ? designProjects 
+    : designProjects.filter(p => p.category === activeTab);
 
-  const filteredDesigns = activeTab === "All" 
-    ? designs 
-    : designs.filter(item => item.category === activeTab);
+  const displayedProjects = (activeTab === "All" && !showAll) 
+    ? filteredProjects.slice(0, 6) 
+    : filteredProjects;
 
   return (
-    <section id="design-showcase" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-      
-      {/* Header & Category Filters */}
-      <FadeIn>
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-          <div>
-            <h3 className="text-sm tracking-widest uppercase font-semibold text-purple-400">
-              Portfolio Gallery
-            </h3>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mt-1 text-white">
-              Featured Creative Works
-            </h2>
-          </div>
-          <p className="text-sm text-gray-400 max-w-sm md:text-right">
-            Explore brand identities, user interfaces, promotional posters, and digital conceptual art.
-          </p>
-        </div>
+    <section id="design-showcase" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5 relative">
+      <div className="absolute top-1/4 left-1/4 w-150 h-150 rounded-full blur-[180px] bg-purple-600/10 pointer-events-none z-0"></div>
 
-        {/* Filter Pills */}
-        <div className="flex flex-wrap gap-2 mb-12">
+      <FadeIn>
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 relative z-10">
+          <div>
+            <h3 className="text-xs font-mono font-bold tracking-widest uppercase text-purple-400">PORTFOLIO GALLERY</h3>
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight mt-1 text-white">Featured Creative Works</h2>
+          </div>
+        </div>
+      </FadeIn>
+
+      <FadeIn>
+        <div className="flex flex-wrap items-center gap-3 mb-14 relative z-10">
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setActiveTab(cat)}
-              className={`px-5 py-2 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                activeTab === cat
-                  ? "bg-purple-500 text-white shadow-lg shadow-purple-500/25"
-                  : "bg-white/5 text-gray-400 border border-white/10 hover:border-purple-500/40 hover:text-white"
+              onClick={() => { setActiveTab(cat); setShowAll(false); }}
+              className={`px-5 py-2.5 rounded-2xl text-xs font-mono font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer border ${
+                activeTab === cat ? "bg-purple-500 text-white border-purple-400 shadow-lg shadow-purple-500/25 scale-105" : "bg-black/60 text-gray-400 border-white/10 hover:border-purple-500/40 hover:text-white"
               }`}
             >
               {cat}
@@ -113,56 +53,60 @@ export default function DesignShowcase() {
         </div>
       </FadeIn>
 
-      {/* Grid of Design Projects */}
-      <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <AnimatePresence>
-          {filteredDesigns.map((design, idx) => (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+        <AnimatePresence mode="popLayout">
+          {displayedProjects.map((project, idx) => (
             <motion.div
+              key={project.slug}
               layout
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              key={design.id}
-              className="group relative flex flex-col rounded-3xl bg-cardBg border border-white/5 overflow-hidden hover:border-purple-500/30 transition-all duration-500 h-full"
             >
-              {/* Glow Effect on Hover */}
-              <div className="absolute -inset-px opacity-0 group-hover:opacity-10 transition-opacity duration-500 bg-linear-to-br from-purple-500 to-transparent pointer-events-none z-0"></div>
-
-              {/* Image / Visual Container */}
-              <div className="relative w-full h-64 overflow-hidden bg-black/60 border-b border-white/5 z-10 flex items-center justify-center p-6">
-                {/* Fallback graphic indicator if local image asset is pending */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-600 p-6 text-center">
-                  <Palette size={32} className="mb-2 opacity-30 text-purple-400" />
-                  <span className="text-xs font-mono uppercase tracking-wider opacity-50">{design.title} Preview</span>
-                </div>
-
-                <div className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white group-hover:bg-purple-500 transition-all duration-300">
-                  <ArrowUpRight size={16} />
-                </div>
-              </div>
-
-              {/* Content Body */}
-              <div className="p-6 flex flex-col grow z-10 relative">
-                <span className="text-[10px] font-mono tracking-widest text-purple-400 uppercase mb-2">
-                  {design.category}
-                </span>
-                <h3 className="text-xl font-bold text-white mb-2 tracking-tight">{design.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 grow">{design.description}</p>
-
-                {/* Tools Stack */}
-                <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10 mt-auto">
-                  {design.tools.map((tool) => (
-                    <span key={tool} className="text-[10px] font-mono text-gray-400 bg-white/5 px-2.5 py-1 rounded border border-white/10">
-                      {tool}
+              <Link href={`/design/${project.slug}`} className="block group relative flex flex-col rounded-3xl bg-black/75 border border-purple-500/20 backdrop-blur-xl overflow-hidden hover:border-purple-500/40 transition-all duration-500 h-full shadow-2xl">
+                
+                {/* 1.png Cover Image */}
+                <div className="relative w-full h-56 bg-purple-950/20 border-b border-white/10 overflow-hidden">
+                  <Image 
+                    src={`/design-showcase/${project.slug}/1.png`} 
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-80"></div>
+                  
+                  <div className="absolute top-4 left-4 z-20">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-purple-300 bg-black/70 backdrop-blur-md border border-purple-500/30 px-3 py-1 rounded-full">
+                      {project.badge}
                     </span>
-                  ))}
+                  </div>
+
+                  <div className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white group-hover:bg-purple-500 transition-colors shadow-lg">
+                    <ArrowUpRight size={16} />
+                  </div>
                 </div>
-              </div>
+
+                <div className="p-7 flex flex-col grow justify-between">
+                  <div>
+                    <span className="text-[10px] font-mono font-bold tracking-widest text-purple-400 uppercase">{project.category}</span>
+                    <h3 className="text-xl font-bold text-white tracking-tight mt-1 mb-2 group-hover:text-purple-300 transition-colors">{project.title}</h3>
+                    <p className="text-gray-400 text-xs leading-relaxed line-clamp-3">{project.desc}</p>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </AnimatePresence>
-      </motion.div>
+      </div>
+
+      {activeTab === "All" && filteredProjects.length > 6 && (
+        <div className="mt-16 text-center relative z-10">
+          <button onClick={() => setShowAll(!showAll)} className="px-8 py-4 rounded-2xl bg-purple-500 hover:bg-purple-400 text-white font-mono font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-purple-500/25 cursor-pointer border border-purple-400">
+            {showAll ? "See Less Works" : `See All Works (${filteredProjects.length})`}
+          </button>
+        </div>
+      )}
     </section>
   );
 }
