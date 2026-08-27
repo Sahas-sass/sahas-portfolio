@@ -25,10 +25,10 @@ export default function Achievements() {
       tags: ["UI/UX Design", "Branding", "Solo Entry"]
     },
     {
-      title: "Semi-Finalist (Rank 9, Advanced Tier) - CodeRally VII",
+      title: "Finalist (Rank 9 in Semi-Finals) - CodeRally VII",
       org: "IEEE Computer Society SBC of IIT",
       date: "2026",
-      desc: "Currently ranked 9th in the advanced tier of the ultimate competitive programming challenge, pushing the boundaries of algorithmic problem-solving under strict time constraints.",
+      desc: "Advanced to the grand finals of the ultimate competitive programming challenge after securing Rank 9 in the advanced tier semi-finals, pushing the boundaries of algorithmic problem-solving under strict time constraints.",
       icon: <Terminal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Competitive Programming", "Algorithms", "Team Nexio"]
     },
