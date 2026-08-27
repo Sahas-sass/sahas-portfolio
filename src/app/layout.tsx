@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Portfolio | Sahas Abeygunarathne",
   description: "Showcasing technical engineering and creative design.",
   icons: {
-    icon: "/favicon.svg",
+    icon: "/favicon.png",
   },
 };
 
