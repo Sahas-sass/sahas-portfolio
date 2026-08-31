@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "@/context/ThemeContext";
-import { Trophy, Medal, Award, Terminal } from "lucide-react";
+import { Trophy, Medal, Award, Terminal, Star } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 export default function Achievements() {
@@ -15,6 +15,14 @@ export default function Achievements() {
       desc: "Secured 1st Place overall in Credit Card Fraud Detection using a 3-model hybrid ensemble (LightGBM, XGBoost, CatBoost). Additionally placed 19th in High-Stakes Image Classification leveraging Swin Transformer V2 architectures.",
       icon: <Trophy className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Machine Learning", "Solo Entry", "Oct_SOLO005"]
+    },
+    {
+      title: "Final Round Qualifier - Project Nova",
+      org: "AIESEC in University of Sri Jayewardenepura",
+      date: "Aug 2026",
+      desc: "Qualified for the Grand Finals in the University Category with Team Nexio. Recognized among the top university teams nationwide for our innovative project proposal and execution.",
+      icon: <Star className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["Competition", "Team Nexio", "Finalist"]
     },
     {
       title: "1st Runner-Up (Individual) - Master Designer v3.0",
