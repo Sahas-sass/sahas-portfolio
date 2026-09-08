@@ -29,6 +29,22 @@ export const projectsData: Project[] = [
     imageUrl: "/projects/agrointel.png"
   },
   {
+    id: "relaymesh",
+    title: "RelayMesh",
+    category: "tech",
+    shortDesc: "Decentralized offline-first disaster response & emergency mesh network.",
+    fullDesc: "RelayMesh is an autonomous, offline-first disaster response ecosystem designed for catastrophic events where traditional cellular and power grids fail. It establishes an ad-hoc peer-to-peer mesh network over Bluetooth Low Energy (BLE) and Wi-Fi Direct.\n\nBuilt with a React Native and Expo edge, it utilizes Delay-Tolerant Networking (DTN) and Store-and-Forward routing to transmit life-saving SOS beacons, encrypted communications, and spatial hazard updates. \n\nThe central backend is powered by high-throughput Golang and PostgreSQL/PostGIS, synchronizing multi-hop data whenever a node discovers an internet gateway. This provides emergency dispatchers with real-time spatial awareness via a React-based Incident Command Dashboard.",
+    techStack: ["React Native", "Go", "PostgreSQL", "PostGIS", "TypeScript", "TweetNaCl"],
+    features: [
+      "BLE Mesh Network with Store-and-Forward Routing",
+      "One-Tap Emergency SOS with START Medical Triage",
+      "End-to-End Encrypted (E2EE) Zero-Knowledge Messaging",
+      "Offline Spatial Vector Mapping & Hazards Sync"
+    ],
+    githubUrl: "https://github.com/Chamalka-heshi/RelayMesh",
+    imageUrl: "/projects/relaymesh.png"
+  },
+  {
     id: "ceynoa",
     title: "CEYNOA",
     category: "tech",
