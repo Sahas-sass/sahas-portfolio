@@ -12,22 +12,8 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
-  {
-    id: "agrointel",
-    title: "AgroIntel",
-    category: "tech",
-    shortDesc: "AI-powered crop disease detection platform for farmers.",
-    fullDesc: "Crop diseases cause massive harvest losses every year. My goal was to build a tool that gives every farmer an \"expert in their pocket.\" By simply uploading a photo of a leaf, AgroIntel identifies diseases instantly and provides localized treatment plans.\n\nTo bring this vision to life, I utilized a modern, high-performance stack: React.js and Tailwind CSS for a highly responsive UI, communicating with a Python and FastAPI backend engineered for sub-2-second rapid API performance.\n\nThe core intelligence relies on TensorFlow/Keras with a custom-trained MobileNetV2 model to handle the computer vision tasks. This project challenged me to integrate complex Deep Learning models with a seamless web experience, successfully leveraging technology for social good.",
-    techStack: ["React.js", "Tailwind CSS", "Framer Motion", "Python", "FastAPI", "TensorFlow", "SQLite"],
-    features: [
-      "Instant AI Diagnosis for 38+ plant diseases with 95% accuracy",
-      "Generates actionable, eco-friendly treatment recommendations",
-      "Sub-2-second real-time processing via FastAPI",
-      "Secure User System with full authentication flows"
-    ],
-    githubUrl: "https://github.com/Sahas-sass/AgroIntel",
-    imageUrl: "/projects/agrointel.png"
-  },
+  
+  
   {
     id: "relaymesh",
     title: "RelayMesh",
@@ -61,6 +47,40 @@ export const projectsData: Project[] = [
     githubUrl: "https://github.com/chirath1231/Software-Project-Storage-Solution",
     imageUrl: "/projects/ceynoa.png"
   },
+  {
+    id: "locus",
+    title: "LOCUS",
+    category: "tech",
+    shortDesc: "Neuro-Symbolic BGP Telemetry & Automated Defense platform.",
+    fullDesc: "The internet's core routing protocol (BGP) is notoriously vulnerable to route leaks and malicious hijacks. I built LOCUS as a closed-loop architecture that doesn't just monitor global traffic, but actively defends against anomalies in real-time.\n\nThe system utilizes a high-speed Go daemon tapping into the RIPE RIS Live firehose, feeding a dual-layer 'Neuro-Symbolic' engine. The Neuro layer uses an Unsupervised Machine Learning model (Isolation Forest) to flag statistical anomalies, while the Symbolic layer queries a Neo4j graph database to verify if the physical Autonomous System (AS) path is topologically possible.\n\nWhen a threat is verified, the FastAPI Python backend autonomously executes commands against a virtualized FRRouting network gateway to inject BGP blackholes. The entire Dockerized pipeline streams live telemetry via WebSockets into a dark-mode Next.js dashboard.",
+    techStack: ["Go", "Python", "FastAPI", "Next.js", "Neo4j", "Scikit-Learn", "Docker", "WebSockets"],
+    features: [
+      "High-speed BGP ingestion engine with strict connection pooling",
+      "Machine Learning anomaly detection via 60-sec sliding windows",
+      "Symbolic topology verification using Neo4j Graph Database",
+      "Automated network defense and blackholing via FRRouting",
+      "Real-time telemetry and incident tracking dashboard"
+    ],
+    githubUrl: "https://github.com/Sahas-sass/LOCUS",
+    imageUrl: "/projects/locus.png"
+  },
+  {
+    id: "agrointel",
+    title: "AgroIntel",
+    category: "tech",
+    shortDesc: "AI-powered crop disease detection platform for farmers.",
+    fullDesc: "Crop diseases cause massive harvest losses every year. My goal was to build a tool that gives every farmer an \"expert in their pocket.\" By simply uploading a photo of a leaf, AgroIntel identifies diseases instantly and provides localized treatment plans.\n\nTo bring this vision to life, I utilized a modern, high-performance stack: React.js and Tailwind CSS for a highly responsive UI, communicating with a Python and FastAPI backend engineered for sub-2-second rapid API performance.\n\nThe core intelligence relies on TensorFlow/Keras with a custom-trained MobileNetV2 model to handle the computer vision tasks. This project challenged me to integrate complex Deep Learning models with a seamless web experience, successfully leveraging technology for social good.",
+    techStack: ["React.js", "Tailwind CSS", "Framer Motion", "Python", "FastAPI", "TensorFlow", "SQLite"],
+    features: [
+      "Instant AI Diagnosis for 38+ plant diseases with 95% accuracy",
+      "Generates actionable, eco-friendly treatment recommendations",
+      "Sub-2-second real-time processing via FastAPI",
+      "Secure User System with full authentication flows"
+    ],
+    githubUrl: "https://github.com/Sahas-sass/AgroIntel",
+    imageUrl: "/projects/agrointel.png"
+  },
+  
   {
     id: "deltas",
     title: "DELTAS",
