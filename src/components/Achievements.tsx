@@ -25,6 +25,14 @@ export default function Achievements() {
       tags: ["Competition", "Team Nexio", "Finalist"]
     },
     {
+      title: "Finalist - ComFix 2026",
+      org: "IEEE Communications Society SBC, University of Moratuwa",
+      date: "Sep 2026",
+      desc: "Selected as a shortlisted finalist team to present our technical architecture and working prototype[cite: 6]. The competition focused on addressing real-world pain points through feasible, innovative solutions[cite: 6].",
+      icon: <Star className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["Hackathon", "Architecture", "Finalist"]
+    },
+    {
       title: "1st Runner-Up (Individual) - Master Designer v3.0",
       org: "Sri Lanka Technology Campus",
       date: "Feb 2026",
@@ -33,10 +41,10 @@ export default function Achievements() {
       tags: ["UI/UX Design", "Branding", "Solo Entry"]
     },
     {
-      title: "Finalist (Rank 9 in Semi-Finals) - CodeRally VII",
+      title: "Finalist (Rank 9 in Semi-Finals, Rank 14 in Finals) - CodeRally VII",
       org: "IEEE Computer Society SBC of IIT",
       date: "2026",
-      desc: "Advanced to the grand finals of the ultimate competitive programming challenge after securing Rank 9 in the advanced tier semi-finals, pushing the boundaries of algorithmic problem-solving under strict time constraints.",
+      desc: "Advanced to the grand finals of the ultimate competitive programming challenge after securing Rank 9 in the advanced tier semi-finals, pushing the boundaries of algorithmic problem-solving under strict time constraints. Sucure the 14th place in the finals from the overall 50+ finalists.",
       icon: <Terminal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Competitive Programming", "Algorithms", "Team Nexio"]
     },
