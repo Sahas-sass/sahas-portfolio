@@ -17,6 +17,14 @@ export default function Achievements() {
       tags: ["Machine Learning", "Solo Entry", "Oct_SOLO005"]
     },
     {
+      title: "3rd Place - ComFix 2026",
+      org: "IEEE Communications Society SBC, University of Moratuwa",
+      date: "Sep 2026",
+      desc: "Secured 3rd Place overall by successfully presenting our technical architecture and working prototype. The competition focused on addressing real-world pain points through feasible, innovative solutions.",
+      icon: <Medal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["Hackathon", "Architecture", "3rd Place"]
+    },
+    {
       title: "Final Round Qualifier - Project Nova",
       org: "AIESEC in University of Sri Jayewardenepura",
       date: "Aug 2026",
@@ -24,14 +32,7 @@ export default function Achievements() {
       icon: <Star className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Competition", "Team Nexio", "Finalist"]
     },
-    {
-      title: "3rd Place - ComFix 2026",
-      org: "IEEE Communications Society SBC, University of Moratuwa",
-      date: "Sep 2026",
-      desc: "Secured 3rd Place overall by successfully presenting our technical architecture and working prototype[cite: 6]. The competition focused on addressing real-world pain points through feasible, innovative solutions[cite: 6].",
-      icon: <Medal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
-      tags: ["Hackathon", "Architecture", "3rd Place"]
-    },
+    
     {
       title: "1st Runner-Up (Individual) - Master Designer v3.0",
       org: "Sri Lanka Technology Campus",
