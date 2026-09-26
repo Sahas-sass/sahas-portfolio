@@ -25,12 +25,12 @@ export default function Achievements() {
       tags: ["Competition", "Team Nexio", "Finalist"]
     },
     {
-      title: "Finalist - ComFix 2026",
+      title: "3rd Place - ComFix 2026",
       org: "IEEE Communications Society SBC, University of Moratuwa",
       date: "Sep 2026",
-      desc: "Selected as a shortlisted finalist team to present our technical architecture and working prototype[cite: 6]. The competition focused on addressing real-world pain points through feasible, innovative solutions[cite: 6].",
-      icon: <Star className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
-      tags: ["Hackathon", "Architecture", "Finalist"]
+      desc: "Secured 3rd Place overall by successfully presenting our technical architecture and working prototype[cite: 6]. The competition focused on addressing real-world pain points through feasible, innovative solutions[cite: 6].",
+      icon: <Medal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["Hackathon", "Architecture", "3rd Place"]
     },
     {
       title: "1st Runner-Up (Individual) - Master Designer v3.0",
