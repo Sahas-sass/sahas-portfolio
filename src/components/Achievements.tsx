@@ -32,7 +32,14 @@ export default function Achievements() {
       icon: <Star className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Competition", "Team Nexio", "Finalist"]
     },
-    
+    {
+      title: "Finalist - Cre8X 3.0",
+      org: "BCS Kotelawala Defence University Student Chapter",
+      date: "Oct 2026",
+      desc: "Selected as a finalist in the National Level Inter University UI/UX Designathon with Team Nexio, recognized for outstanding innovation and design thinking.",
+      icon: <Award className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["UI/UX Design", "Designathon", "Team Nexio"]
+    },
     {
       title: "1st Runner-Up (Individual) - Master Designer v3.0",
       org: "Sri Lanka Technology Campus",
