@@ -26,6 +26,10 @@ export default function Leadership() {
       icon: <Award size={20} />,
       roles: [
         {
+          title: "Webmaster",
+          term: "2026 - 2027",
+          desc: "Currently serving as the Webmaster, overseeing the branch's online presence and digital initiatives."},
+        {
           title: "Design Committee Lead",
           term: "2025 - 2026",
           desc: "Promoted from Member to Lead, steering visual direction and branding."

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "@/context/ThemeContext";
-import { Trophy, Medal, Award, Terminal, Star } from "lucide-react";
+import { Trophy, Medal, Award, Terminal, Star, Brain } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 export default function Achievements() {
@@ -55,6 +55,14 @@ export default function Achievements() {
       desc: "Advanced to the grand finals of the ultimate competitive programming challenge after securing Rank 9 in the advanced tier semi-finals, pushing the boundaries of algorithmic problem-solving under strict time constraints. Sucure the 14th place in the finals from the overall 50+ finalists.",
       icon: <Terminal className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
       tags: ["Competitive Programming", "Algorithms", "Team Nexio"]
+    },
+    {
+      title: "Finalist - MODEL X 2.0",
+      org: "IIT",
+      date: "2026",
+      desc: "Selected among the top 16 finalist teams in MODEL X 2.0, an inter-university AI and machine learning model-building challenge powered by Zuu Crew in partnership with IIT. Competed individually under Team Nexio (UOM), engineering and optimizing ML models to advance to the grand finale.",
+      icon: <Brain className={mode === "tech" ? "text-gold-rich" : "text-purple-400"} size={24} />,
+      tags: ["Machine Learning", "AI Challenge", "Team Nexio"]
     },
     {
       title: "Semi-Finalist - Mini Hackathon 2025",
