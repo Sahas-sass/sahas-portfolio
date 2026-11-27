@@ -12,6 +12,24 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
+  {
+    id: "hashguard",
+    title: "HashGuard (Sevana)",
+    category: "tech",
+    shortDesc: "Privacy-first digital safety companion & evidence vault for victims of online harms.",
+    fullDesc: "HashGuard (Sevana) is an Android-first, privacy-first digital safety companion engineered to support individuals affected by image-based abuse and digital threats. Built with an offline-first philosophy, HashGuard ensures sensitive media never leaves the user's device, upholding absolute digital privacy and dignity.\n\nThe system features a secure Evidence Vault that computes tamper-evident cryptographic SHA-256 digital fingerprints for incident logs and media, enabling users to generate verifiable PDF incident reports without exposing raw sensitive files. Incident photos are encrypted on-device using AES-256-GCM, backed by a SQLCipher encrypted database and protected by biometric authentication, auto-lock mechanisms, and a discreet decoy Emergency PIN.\n\nHashGuard also integrates an on-device, rule-based multilingual Threat Assistant (supporting Sinhala, Tamil, and English) to identify predatory patterns and extortion warning signs. A companion partner dashboard built with Vite and React allows authorized organizations to review aggregated, anonymized trends to coordinate support safely.",
+    techStack: ["React Native", "Expo SDK 58", "TypeScript", "SQLCipher", "AES-256-GCM", "Zustand", "Vite", "React"],
+    features: [
+      "Offline-first Digital Evidence Vault with SHA-256 fingerprinting",
+      "Local on-device AES-256-GCM and SQLCipher database encryption",
+      "Rule-based multilingual Threat Assistant (Sinhala, Tamil, English)",
+      "Discreet panic safeguards: Decoy Emergency PIN & Shake-to-Exit",
+      "Tamper-evident verifiable PDF case report exporting",
+      "Companion web portal for anonymized partner trend analytics"
+    ],
+    githubUrl: "https://github.com/Sahas-sass/HashGuard",
+    imageUrl: "/projects/hashguard.png"
+  },
   
   
   {
