@@ -13,6 +13,24 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
+    id: "waypoint",
+    title: "Waypoint",
+    category: "tech",
+    shortDesc: "Enterprise logistics & predictive routing system built with MILP solvers and LightGBM.",
+    fullDesc: "Waypoint is an enterprise-grade logistics and predictive routing operating system engineered for Tech-Triathlon 2026 (organized by Rootcode) by Team Nexio. Designed to tackle severe supply chain bottlenecks, multi-temperature cold chain compliance, and peak-day fleet shortages, Waypoint orchestrates real-time freight workflows across four specialized operational roles.\n\nThe system integrates an intelligent Data Engine featuring 5-Fold cross-validated LightGBM machine learning models (ROC-AUC 0.9763) for demand and risk forecasting, paired with a 0-1 Mixed Integer Linear Programming (MILP) solver implemented via PuLP and CBC Solver that resolved severe peak-day fleet shortages with 0 validator errors.\n\nThe frontend command center is built on Next.js 16 App Router and Tailwind CSS v4, backed by Node.js, WebSockets (Socket.io), and Supabase / PostgreSQL utilizing Row Level Security (RLS) and custom database RPCs. For edge field execution, the driver fleet utilizes an offline-first React Native / Expo application with local SQLite caching, digital signatures, photo proof-of-delivery (POD) capture, and background synchronization.",
+    techStack: ["Next.js 16", "React Native", "Expo", "Python", "LightGBM", "PuLP / MILP", "Node.js", "Socket.io", "Supabase", "PostgreSQL"],
+    features: [
+      "0-1 Mixed Integer Linear Programming (MILP) fleet solver via PuLP",
+      "5-Fold cross-validated LightGBM predictive engine (ROC-AUC 0.9763)",
+      "Multi-constraint Dispatcher Hub with live GPS tracking & temperature compliance",
+      "Offline-first mobile Driver app with SQLite caching & photo POD capture",
+      "LIFO reverse-stop loading sequence verification and vehicle sealing",
+      "Store Manager order portal with strict 16:00 cutoff validation"
+    ],
+    githubUrl: "https://github.com/Sahas-sass/Nexio_Waypoint",
+    imageUrl: "/projects/waypoint.png"
+  },
+  {
     id: "hashguard",
     title: "HashGuard (Sevana)",
     category: "tech",
